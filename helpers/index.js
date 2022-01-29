@@ -1,5 +1,9 @@
 const dbValidator = require("../helpers/db-validator");
-const coleccionesPermitidas = require("../helpers/db-validator");
+const {
+	coleccionesPermitidas,
+	rolValidator,
+	emailUnique,
+} = require("../helpers/db-validator");
 const extension = require("../helpers/extension");
 const googleVerify = require("../helpers/google-verify");
 const JWT = require("../helpers/JWT");
@@ -18,4 +22,6 @@ module.exports = {
 	buscarProductos,
 	buscarUsuarios,
 	filtroBusqueda,
+	rolValidator,
+	emailUnique,
 };

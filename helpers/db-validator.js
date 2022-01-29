@@ -13,7 +13,7 @@ const rolValidator = async (rol = "") => {
 const emailUnique = async (correo) => {
 	const correoExist = await Usuario.findOne({ correo: correo });
 	if (correoExist) {
-		throw new Error("El correo ingresado ya existe, vo so loko?");
+		throw new Error("El correo ingresado ya existe");
 	} else {
 		return true;
 	}
@@ -27,5 +27,4 @@ const coleccionesPermitidas = (coleccion, colecciones = []) => {
 	}
 };
 
-module.exports = { rolValidator, emailUnique };
-module.exports = coleccionesPermitidas;
+module.exports = { rolValidator, emailUnique, coleccionesPermitidas };
