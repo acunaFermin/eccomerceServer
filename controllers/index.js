@@ -1,5 +1,5 @@
 const {
-	servirImg,
+	mostrarImagen,
 	cargarArchivo,
 	actualizarImagen,
 } = require("../controllers/uploads.controllers");
@@ -32,7 +32,7 @@ const {
 } = require("../controllers/usuarios.controllers");
 
 module.exports = {
-	servirImg,
+	mostrarImagen,
 	cargarArchivo,
 	actualizarImagen,
 	login,

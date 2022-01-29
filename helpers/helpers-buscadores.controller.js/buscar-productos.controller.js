@@ -1,6 +1,6 @@
 const { ObjectId } = require("mongoose").Types;
 const { Producto } = require("../../models");
-const { filtroBusqueda } = require("../../helpers");
+const filtroBusqueda = require("../buscador-filtro");
 
 const buscarProductos = async (terminoBusqueda = "", res = response) => {
 	const esMongoID = ObjectId.isValid(terminoBusqueda);

@@ -6,7 +6,7 @@ const Router = require("express");
 const {
 	cargarArchivo,
 	actualizarImagen,
-	servirImg,
+	mostrarImagen,
 } = require("../controllers");
 
 const router = Router();
@@ -24,14 +24,14 @@ router.put(
 	actualizarImagen
 );
 
-router.put(
+router.get(
 	"/:coleccion/:id",
 	check("id", "debe ingresar un id valido").isMongoId(),
 	check("coleccion").custom((coleccion) =>
 		coleccionesPermitidas(coleccion, ["usuarios", "productos"])
 	),
 	validarCampos,
-	servirImg
+	mostrarImagen
 );
 
 module.exports = router;

@@ -80,14 +80,52 @@ const actualizarImagen = async (req = request, res = response) => {
 	}
 };
 
-const servirImg = (req = request, res = response) => {
-	res.json({
-		msg: "todo re piola",
-	});
+const mostrarImagen = async (req = request, res = response) => {
+	const { coleccion, id } = req.params;
+	let modelo = {};
+
+	switch (coleccion) {
+		case "productos":
+			modelo = await Producto.findById(id);
+			if (!modelo) {
+				return res.status(400).json({
+					msg: `No existe un producto con el id: ${id}`,
+				});
+			}
+			break;
+		case "usuarios":
+			modelo = await Usuario.findById(id);
+			if (!modelo) {
+				return res.status(400).json({
+					msg: `No existe un usuario con el id: ${id}`,
+				});
+			}
+
+			break;
+		default:
+			return res.status(500).json({
+				msg: "error interno",
+			});
+			break;
+	}
+	//validar si el modelo tiene una img
+	if (!modelo.img) {
+		const noImgPath = path.join(__dirname, "../assets/no-image.jpg");
+		return res.status(400).sendFile(noImgPath);
+	}
+
+	//generar el path de la img
+	const imgPath = path.join(__dirname, "../uploads", coleccion, modelo.img);
+
+	//si existe el archivo
+	if (fs.existsSync(imgPath)) {
+		//lo envio
+		return res.sendFile(imgPath);
+	}
 };
 
 module.exports = {
 	cargarArchivo,
 	actualizarImagen,
-	servirImg,
+	mostrarImagen,
 };
