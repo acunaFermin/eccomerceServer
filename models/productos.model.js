@@ -32,6 +32,15 @@ const ProductosSchema = new Schema({
 		type: Boolean,
 		default: true,
 	},
+	stock: {
+		type: Number,
+		default: 0,
+	},
+	minStock: {
+		type: Number,
+		default: 0,
+	},
+
 	img: {
 		type: String,
 	},
