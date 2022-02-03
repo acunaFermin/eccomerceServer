@@ -3,19 +3,27 @@ const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 
 const TransaccionesSchema = new Schema({
-	vendedor: {
+	usuario: {
 		type: Schema.Types.ObjectId,
 		ref: "Usuario",
+		required: [true, "El usuario es obligatorio"],
 	},
+
 	cliente: {
 		type: Schema.Types.ObjectId,
 		ref: "Cliente",
+		require: true,
 	},
 
 	productos: {
-		type: Schema.Types.Array,
-		ref: "Producto",
+		type: Array,
 	},
+
+	total: {
+		type: Number,
+		default: 0,
+	},
+
 	descripcion: {
 		type: String,
 	},

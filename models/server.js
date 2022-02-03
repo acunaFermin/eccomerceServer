@@ -12,6 +12,7 @@ class Server {
 		this.path = {
 			usuarios: "/api/usuarios",
 			clientes: "/api/clientes",
+			transaccion: "/api/transaccion",
 			auth: "/api/auth",
 			categ: "/api/categorias",
 			prod: "/api/productos",
@@ -51,6 +52,10 @@ class Server {
 		this.app.use(this.path.buscar, require("../routes/buscar.routes"));
 		this.app.use(this.path.cargar, require("../routes/uploads.routes"));
 		this.app.use(this.path.clientes, require("../routes/clientes.routes"));
+		this.app.use(
+			this.path.transaccion,
+			require("../routes/transaccion.routes")
+		);
 	}
 	cargar;
 

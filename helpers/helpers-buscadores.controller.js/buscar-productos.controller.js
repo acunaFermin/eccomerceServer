@@ -19,8 +19,8 @@ const buscarProductos = async (terminoBusqueda = "", res = response) => {
 		const regexTermino = new RegExp(terminos[0], "i");
 
 		let productos = await Producto.where({ estado: true })
-			.populate("usuario", "nombre")
-			.populate("categoria", "nombre")
+			.populate("usuario")
+			.populate("categoria")
 			.find({
 				$or: [
 					{

@@ -122,8 +122,7 @@ const actualizarProducto = async (req = request, res = response) => {
 	const _id = req.params.id;
 	const usuario = req.authUser;
 
-	const { nombre, estado, categoriaNombre, precio, descripcion, disponible } =
-		req.body;
+	const { categoriaNombre, ...data } = req.body;
 
 	const categoria = await Categoria.where({ estado: true }).findOne({
 		nombre: categoriaNombre,
@@ -138,13 +137,8 @@ const actualizarProducto = async (req = request, res = response) => {
 	const producto = await Producto.findOneAndUpdate(
 		{ _id },
 		{
-			nombre,
-			estado,
-			usuario,
+			...data,
 			categoria: categoria._id,
-			precio,
-			descripcion,
-			disponible,
 		}
 	);
 

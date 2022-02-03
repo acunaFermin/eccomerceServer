@@ -36,11 +36,11 @@ const UsuarioSchema = new Schema({
 });
 
 //saca __v, password de la respuesta cuando se devuelve el usuario creado
-UsuarioSchema.methods.toJSON = function () {
-	const { __v, password, _id, ...usuario } = this.toObject();
-	usuario.uid = _id; // cambiar el _id por uid, solo para que se vea uid en vez de _id
-	return usuario;
-};
+// UsuarioSchema.methods.toJSON = function () {
+// 	const { __v, password, _id, ...usuario } = this.toObject();
+// 	usuario.uid = _id; // cambiar el _id por uid, solo para que se vea uid en vez de _id
+// 	return usuario;
+// };
 
 //defino un modelo de usuario
 const Usuario = mongoose.model("Usuario", UsuarioSchema);

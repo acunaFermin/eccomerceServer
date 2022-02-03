@@ -39,6 +39,8 @@ const {
 	clientesPatch,
 } = require("../controllers/clientes.controllers");
 
+const nuevaTransaccion = require("../controllers/transacciones.controller");
+
 module.exports = {
 	mostrarImagen,
 	cargarArchivo,
@@ -66,4 +68,5 @@ module.exports = {
 	clientesPost,
 	clientesDelete,
 	clientesPatch,
+	nuevaTransaccion,
 };
