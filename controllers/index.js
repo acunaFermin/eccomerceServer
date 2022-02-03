@@ -31,6 +31,14 @@ const {
 	usuariosPatch,
 } = require("../controllers/usuarios.controllers");
 
+const {
+	clientesGet,
+	clientesPut,
+	clientesPost,
+	clientesDelete,
+	clientesPatch,
+} = require("../controllers/clientes.controllers");
+
 module.exports = {
 	mostrarImagen,
 	cargarArchivo,
@@ -53,4 +61,9 @@ module.exports = {
 	usuariosPost,
 	usuariosDelete,
 	usuariosPatch,
+	clientesGet,
+	clientesPut,
+	clientesPost,
+	clientesDelete,
+	clientesPatch,
 };

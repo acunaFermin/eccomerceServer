@@ -10,6 +10,7 @@ const ClienteSchema = new Schema({
 	dni: {
 		type: Number,
 		required: [true, "El DNI es obligatorio"],
+		unique: true,
 	},
 	correo: {
 		type: String,
