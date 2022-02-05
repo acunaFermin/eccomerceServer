@@ -67,7 +67,16 @@ const getProdById = async (req = request, res = response) => {
 //crear nuevo producto
 const crearProducto = async (req = request, res = response) => {
 	try {
-		const { nombre, categoriaNombre, precio, descripcion = "" } = req.body;
+		const {
+			categoriaNombre,
+			nombre,
+			marca,
+			precio_compra,
+			precio_venta,
+			stock,
+			min_stock,
+			descripcion,
+		} = req.body;
 
 		const [productoExists, categoria] = await Promise.all([
 			//productoExists:
@@ -88,7 +97,12 @@ const crearProducto = async (req = request, res = response) => {
 
 		const data = {
 			nombre,
-			precio,
+			marca,
+			precio_compra,
+			precio_venta,
+			margen: precio_venta / precio_compra,
+			stock,
+			min_stock,
 			descripcion,
 			usuario,
 			categoria: categoria._id,

@@ -40,8 +40,12 @@ router.post(
 		min: 3,
 	}),
 	check("categoriaNombre", "La categoria es obligatoria").not().isEmpty(),
-	check("precio", "El precio es obligatorio").not().isEmpty(),
-	check("precio", "El precio debe ser numerico").isNumeric(),
+	check("precio_venta", "El precio de venta es obligatorio").not().isEmpty(),
+	check("precio_compra", "El precio de compra es obligatorio")
+		.not()
+		.isEmpty(),
+	check("precio_venta", "El precio de venta debe ser numerico").isNumeric(),
+	check("precio_compra", "El precio de compra debe ser numerico").isNumeric(),
 	validarCampos,
 	crearProducto
 );

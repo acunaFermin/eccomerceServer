@@ -64,7 +64,11 @@ const actualizarImagen = async (req = request, res = response) => {
 		}
 
 		//GUARDAR ARCHIVO EN EL SERVIDOR
-		const nombre = await subirArchivo(req.files.archivo, "png", coleccion);
+		const nombre = await subirArchivo(
+			req.files.archivo,
+			["jpg", "png", "jpeg", "gif", "xlsx"],
+			coleccion
+		);
 		//GUARDAR EL NOMBRE DEL ARCHIVO EN LA DB
 		modelo.img = nombre;
 		await modelo.save();

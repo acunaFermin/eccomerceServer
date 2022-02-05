@@ -8,6 +8,10 @@ const ProductosSchema = new Schema({
 		type: String,
 		required: [true, "El nombre es obligatorio"],
 	},
+	marca: {
+		type: String,
+		default: "no especificado",
+	},
 	estado: {
 		type: Boolean,
 		default: true,
@@ -21,10 +25,18 @@ const ProductosSchema = new Schema({
 		ref: "Categoria",
 		required: [true, "Ingrese una categoria valida"],
 	},
-	precio: {
+	precio_compra: {
 		type: Number,
-		required: [true, "El precio es obligatorio"],
+		required: [true, "El precio de compra es obligatorio"],
 	},
+	precio_venta: {
+		type: Number,
+		required: [true, "El precio de venta es obligatorio"],
+	},
+	margen: {
+		type: Number,
+	},
+
 	descripcion: {
 		type: String,
 	},
